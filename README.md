@@ -16,7 +16,7 @@ This image is not yet posted to the public DockerHub repository, so you will hav
 - Run `docker build -t ipfs .`
   This will tag the image so you can run it later. 
 - Run `docker run --name ipfs -p $PORT:4001 -p $PORT:5001 -p $PORT:8080 ipfs` 
-  Substitute the `$PORT` variables with the required. This command will spin up a docker container with all the necessary modifications. 
+  Substitute the `$PORT` variables with the ports you wish to open. This command will spin up a docker container with all the necessary modifications. 
 
 # Bootstrapping the IPFS node
 The IPFS node will be configured with no bootstrap nodes. The final step is to configure     the bootstrap node. If you run the command `docker exec -it ipfs ipfs config show` and scroll down, you will see that the 'Bootstrap' value is `null`. Now we will add the _ip address_ and the _peer ID_ of the bootstrap node to both the bootstrap and the 'normal' nodes. 
