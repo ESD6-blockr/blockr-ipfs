@@ -19,5 +19,12 @@ This image is not yet posted to the public DockerHub repository, so you will hav
   Substitute the `$PORT` variables with the required. This command will spin up a docker container with all the necessary modifications. 
 
 # Bootstrapping the IPFS node
-The IPFS node will be configured with no bootstrap nodes. The final step is to configure     the bootstrap node. If you run the command `docker exec -it ipfs ipfs config show` and scroll down, you will see that the 'Bootstrap' value is `null`. 
-  
+The IPFS node will be configured with no bootstrap nodes. The final step is to configure     the bootstrap node. If you run the command `docker exec -it ipfs ipfs config show` and scroll down, you will see that the 'Bootstrap' value is `null`. Now we will add the _ip address_ and the _peer ID_ of the bootstrap node to both the bootstrap and the 'normal' nodes. 
+
+- _IP address:_ result of `curl ifconfig.me` to get the outside IP of your machine. Execute this on your host (not your Docker container).
+- _Peer ID:_ was created on initialisation of the IPFS node, result of `docker exec -it ipfs ipfs config show | grep "PeerID"`.
+- Execute the following command on the IPFS daemon: `docker exec -it ipfs bootstrap add /ip4/$IP_ADDRESS/tcp/4001/ipfs/$PEER_ID`
+- If you run `docker exec -it ipfs config show` again, it should now show the Bootstrap node configured.
+
+# Finalizing
+Now you have run your own IPFS node! You can use this for your own development, or with the Blockr IPFS API, especially made for the Blockr project; see https://github.com/ESD6-blockr/blockr-ipfs-api.
