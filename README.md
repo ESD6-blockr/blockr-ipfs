@@ -23,7 +23,7 @@ The IPFS node will be configured with no bootstrap nodes. The final step is to c
 
 - _IP address:_ result of `curl ifconfig.me` to get the outside IP of your machine. Execute this on your host (not your Docker container).
 - _Peer ID:_ was created on initialisation of the IPFS node, result of `docker exec -it ipfs ipfs config show | grep "PeerID"`.
-- Execute the following command on the IPFS daemon: `docker exec -it ipfs bootstrap add /ip4/$IP_ADDRESS/tcp/4001/ipfs/$PEER_ID`
+- Execute the following command on the IPFS daemon: `docker exec -it ipfs bootstrap add /ip4/$IP_ADDRESS/tcp/4001/ipfs/$PEER_ID`. Replace `$IP_ADDRESS` and `$PEER_ID` with the previously mentioned results. 
 - If you run `docker exec -it ipfs config show` again, it should now show the Bootstrap node configured.
 
 # Finalizing
