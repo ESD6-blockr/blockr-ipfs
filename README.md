@@ -1,7 +1,7 @@
 # blockr-ipfs
 Private IPFS network setup used within the Blockr project.
 
-**NOTE: For now, this Docker image can only be deployed on a _Linux based_ machine!gkt**
+**NOTE: For now, this Docker image can only be deployed on a _Linux based_ machine!**
 
 # Private IPFS network
 This repository contains the necessary files to create a private IPFS node. This IPFS node is used within the Blockr project to upload files and save the IPFS hash in a smart contract. For more information on IPFS, visit https://docs.ipfs.io/.
